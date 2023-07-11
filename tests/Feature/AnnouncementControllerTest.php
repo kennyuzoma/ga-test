@@ -10,21 +10,21 @@ use App\Models\Announcement;
 
 class AnnouncementControllerTest extends TestCase
 {
-    use RefreshDatabase;  // this will ensure that your database is rolled back after each test
+    use RefreshDatabase;
 
     public function testStoreMethod()
     {
-        $user = User::factory()->create();  // creating a user to associate with announcement
+        $user = User::factory()->create();
 
-        $response = $this->actingAs($user)  // set the currently logged in user for the application
-        ->post('/announcements', [  // adjust this if your route is different
+        $response = $this->actingAs($user)
+        ->post('/announcements', [
             'subject' => 'Test Subject',
             'body' => 'Test Body',
         ]);
 
-        $response->assertRedirect('/announcements');  // assert that the user was redirected to the 'announcements' route
+        $response->assertRedirect('/announcements');
 
-        $this->assertDatabaseHas('announcements', [  // assert that the announcement was added to the database
+        $this->assertDatabaseHas('announcements', [
             'subject' => 'Test Subject',
             'body' => 'Test Body',
             'user_id' => $user->id,
