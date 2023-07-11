@@ -4,12 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
     @vite('resources/js/app.js')
 
 </head>
@@ -25,10 +23,6 @@
         <li>
             <a href="{{ route('announcements.create') }}" class="p-3">Create New</a>
         </li>
-    </ul>
-
-    <ul class="flex items-center">
-        <!-- add navigation items here -->
     </ul>
 </nav>
 <div class="w-1/2 p-4 mx-auto">

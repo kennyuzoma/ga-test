@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * The Annoucement Model
- *
- *
  */
 class Announcement extends Model
 {
